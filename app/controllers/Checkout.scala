@@ -22,7 +22,7 @@ class Checkout @Inject() extends Controller {
     */
   def price(items: String) = Action {
     val itemsList = items.toLowerCase.split(",").toList
-    val totalItemPrice = calcTotalItemPrice(itemsList)
+    val totalItemPrice = calcTotalItemPrice(itemsList, applyOffer = true)
     Ok("%.2f".format(totalItemPrice))
   }
 }

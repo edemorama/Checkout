@@ -18,7 +18,7 @@ class IntegrationSpec extends PlaySpec with OneServerPerTest {
       val result = Await.result(wsClient.url(s"http://localhost:$port/price/$items").get(), 5.seconds)
 
       result.status mustBe OK
-      result.body mustEqual "1.45"
+      result.body mustEqual "0.85"
     }
   }
 }

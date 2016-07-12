@@ -21,5 +21,10 @@ class ApplicationSpec extends PlaySpec with OneAppPerTest {
       val itemsList = "apple,orange,Apple".toLowerCase.split(",").toList
       calcTotalItemPrice(itemsList) mustBe 1.45
     }
+
+    "Price apple and orange offers with 3 oranges and 2 apples " in {
+      val itemsList = "apple,orange,ORANGE,Apple,Orange".toLowerCase.split(",").toList
+      calcTotalItemPrice(itemsList, applyOffer = true) mustBe 1.10
+    }
   }
 }
